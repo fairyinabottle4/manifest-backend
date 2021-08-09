@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.toNewEntry = exports.toNewPatientEntry = exports.censorPatient = void 0;
 const types_1 = require("./types");
 const uuid_1 = require("uuid");
-const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, occupation, entries, seatNumber }) => {
-    return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber };
+const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, dietaryRequirements, occupation, entries, seatNumber }) => {
+    return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
 };
 exports.censorPatient = censorPatient;
-const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber }) => {
+const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, mealType }) => {
     const newPatient = {
         name: parseString(name, "name"),
         ssn: parseString(ssn, "ssn"),
@@ -16,7 +16,8 @@ const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelC
         dateOfBirth: parseDateOfBirth(dateOfBirth),
         gender: parseGender(gender),
         occupation: parseString(occupation, "occupation"),
-        entries: []
+        entries: [],
+        dietaryRequirements: parseString(mealType, "meal type")
     };
     return newPatient;
 };
@@ -30,6 +31,15 @@ const parseString = (text, field) => {
     }
     return text.trim();
 };
+// const isMealType = (mealType: any): mealType is MealType => {
+//   return Object.values(MealType).includes(mealType);
+// };
+// const parseMealType = (mealType: any): MealType => {
+//   if (!mealType || !isString(mealType) || !isMealType(mealType)) {
+//     throw new Error(`Invalid or missing meal type`);
+//   }
+//   return mealType;
+// };
 const isGender = (gender) => {
     return Object.values(types_1.Gender).includes(gender);
 };

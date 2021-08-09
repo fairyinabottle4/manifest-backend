@@ -90,3 +90,5 @@ const mealTypes: MealType[] = [
     "name": "Seafood Meal"
   }
 ];
+
+export default mealTypes;

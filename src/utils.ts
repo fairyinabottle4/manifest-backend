@@ -7,8 +7,8 @@ import {
   HealthCheckRating,
   Entry,
   Diagnosis,
-  TravelClass
-} from './types'
+  TravelClass,
+} from './types';
 
 import { v4 as uuid } from 'uuid';
 
@@ -18,16 +18,17 @@ export const censorPatient = ({
   dateOfBirth,
   gender,
   travelClass,
+  dietaryRequirements,
   occupation,
   entries,
   seatNumber
 }: Patient): CensoredPatient => {
-  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber };
+  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown, seatNumber: unknown};
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown, seatNumber: unknown, mealType: unknown};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber} : Fields): NewPatientEntry => {
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, mealType} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     name: parseString(name, "name"),
     ssn: parseString(ssn, "ssn"),
@@ -36,7 +37,8 @@ export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, t
     dateOfBirth: parseDateOfBirth(dateOfBirth),
     gender: parseGender(gender),
     occupation: parseString(occupation, "occupation"),
-    entries: []
+    entries: [],
+    dietaryRequirements: parseString(mealType, "meal type")
   };
 
   return newPatient;
@@ -52,6 +54,17 @@ const parseString = (text: any, field: string): string => {
   }
   return text.trim();
 };
+
+// const isMealType = (mealType: any): mealType is MealType => {
+//   return Object.values(MealType).includes(mealType);
+// };
+
+// const parseMealType = (mealType: any): MealType => {
+//   if (!mealType || !isString(mealType) || !isMealType(mealType)) {
+//     throw new Error(`Invalid or missing meal type`);
+//   }
+//   return mealType;
+// };
   
 const isGender = (gender: any): gender is Gender => {
   return Object.values(Gender).includes(gender);

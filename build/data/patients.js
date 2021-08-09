@@ -11,6 +11,7 @@ const patients = [
         travelClass: types_1.TravelClass.First,
         seatNumber: "1A",
         occupation: 'New york city cop',
+        dietaryRequirements: "",
         entries: [
             {
                 id: 'd811e46d-70b3-4d90-b090-4535c7cf8fb1',
@@ -35,6 +36,7 @@ const patients = [
         travelClass: types_1.TravelClass.Business,
         seatNumber: "23D",
         occupation: 'Cop',
+        dietaryRequirements: "SFML",
         entries: [
             {
                 id: 'fcd59fa6-c4b4-4fec-ac4d-df4fe1f85f62',
@@ -60,6 +62,7 @@ const patients = [
         travelClass: types_1.TravelClass.PremiumEconomy,
         seatNumber: "31D",
         occupation: 'Technician',
+        dietaryRequirements: "NFMLA",
         entries: [],
     },
     {
@@ -71,6 +74,7 @@ const patients = [
         travelClass: types_1.TravelClass.Economy,
         seatNumber: "55H",
         occupation: 'Forensic Pathologist',
+        dietaryRequirements: "LFML",
         entries: [
             {
                 id: 'b4f4eca1-2aa7-4b13-9a18-4a5535c3c8da',
@@ -107,6 +111,7 @@ const patients = [
         travelClass: types_1.TravelClass.Economy,
         seatNumber: "55K",
         occupation: 'Digital evangelist',
+        dietaryRequirements: "BBML",
         entries: [
             {
                 id: '54a8746e-34c4-4cf4-bf72-bfecd039be9a',
