@@ -6,7 +6,8 @@ import {
   BaseEntry,
   HealthCheckRating,
   Entry,
-  Diagnosis
+  Diagnosis,
+  TravelClass
 } from './types'
 
 import { v4 as uuid } from 'uuid';
@@ -16,18 +17,20 @@ export const censorPatient = ({
   name,
   dateOfBirth,
   gender,
+  travelClass,
   occupation,
   entries
 }: Patient): CensoredPatient => {
-  return { id, name, dateOfBirth, gender, occupation, entries };
+  return { id, name, dateOfBirth, gender, occupation, entries, travelClass };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown}
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation} : Fields): NewPatientEntry => {
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     name: parseString(name, "name"),
     ssn: parseString(ssn, "ssn"),
+    travelClass: parseTravelClass(travelClass),
     dateOfBirth: parseDateOfBirth(dateOfBirth),
     gender: parseGender(gender),
     occupation: parseString(occupation, "occupation"),
@@ -57,6 +60,17 @@ const parseGender = (gender: any): Gender => {
     throw new Error(`Invalid or missing gender`);
   }
   return gender;
+};
+
+const isTravelClass = (travelClass: any): travelClass is TravelClass => {
+  return Object.values(TravelClass).includes(travelClass);
+};
+
+const parseTravelClass = (travelClass: any): TravelClass => {
+  if (!travelClass || !isTravelClass(travelClass) || isString(travelClass)) {
+    throw new Error(`Invalid or missing travel class`);
+  }
+  return travelClass;
 };
 
 const isDate = (date: any): boolean => {

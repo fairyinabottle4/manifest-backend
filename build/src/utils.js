@@ -3,14 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.toNewEntry = exports.toNewPatientEntry = exports.censorPatient = void 0;
 const types_1 = require("./types");
 const uuid_1 = require("uuid");
-const censorPatient = ({ id, name, dateOfBirth, gender, occupation, entries }) => {
-    return { id, name, dateOfBirth, gender, occupation, entries };
+const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, occupation, entries }) => {
+    return { id, name, dateOfBirth, gender, occupation, entries, travelClass };
 };
 exports.censorPatient = censorPatient;
-const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation }) => {
+const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass }) => {
     const newPatient = {
         name: parseString(name, "name"),
         ssn: parseString(ssn, "ssn"),
+        travelClass: parseTravelClass(travelClass),
         dateOfBirth: parseDateOfBirth(dateOfBirth),
         gender: parseGender(gender),
         occupation: parseString(occupation, "occupation"),
@@ -36,6 +37,15 @@ const parseGender = (gender) => {
         throw new Error(`Invalid or missing gender`);
     }
     return gender;
+};
+const isTravelClass = (travelClass) => {
+    return Object.values(types_1.TravelClass).includes(travelClass);
+};
+const parseTravelClass = (travelClass) => {
+    if (!travelClass || !isTravelClass(travelClass) || isString(travelClass)) {
+        throw new Error(`Invalid or missing travel class`);
+    }
+    return travelClass;
 };
 const isDate = (date) => {
     return Boolean(Date.parse(date));

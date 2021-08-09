@@ -8,6 +8,7 @@ const patients = [
         dateOfBirth: '1986-07-09',
         ssn: '090786-122X',
         gender: types_1.Gender.Male,
+        travelClass: types_1.TravelClass.First,
         occupation: 'New york city cop',
         entries: [
             {
@@ -30,6 +31,7 @@ const patients = [
         dateOfBirth: '1979-01-30',
         ssn: '300179-777A',
         gender: types_1.Gender.Male,
+        travelClass: types_1.TravelClass.Business,
         occupation: 'Cop',
         entries: [
             {
@@ -53,6 +55,7 @@ const patients = [
         dateOfBirth: '1970-04-25',
         ssn: '250470-555L',
         gender: types_1.Gender.Male,
+        travelClass: types_1.TravelClass.PremiumEconomy,
         occupation: 'Technician',
         entries: [],
     },
@@ -62,6 +65,7 @@ const patients = [
         dateOfBirth: '1974-01-05',
         ssn: '050174-432N',
         gender: types_1.Gender.Female,
+        travelClass: types_1.TravelClass.Economy,
         occupation: 'Forensic Pathologist',
         entries: [
             {
@@ -96,6 +100,7 @@ const patients = [
         dateOfBirth: '1971-04-09',
         ssn: '090471-8890',
         gender: types_1.Gender.Male,
+        travelClass: types_1.TravelClass.Economy,
         occupation: 'Digital evangelist',
         entries: [
             {

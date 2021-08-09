@@ -1,4 +1,4 @@
-import { Patient, Gender } from "../src/types";
+import { Patient, Gender, TravelClass } from "../src/types";
 
 const patients: Patient[] = [
     {
@@ -7,6 +7,7 @@ const patients: Patient[] = [
       dateOfBirth: '1986-07-09',
       ssn: '090786-122X',
       gender: Gender.Male,
+      travelClass: TravelClass.First,
       occupation: 'New york city cop',
       entries: [
         {
@@ -30,6 +31,7 @@ const patients: Patient[] = [
       dateOfBirth: '1979-01-30',
       ssn: '300179-777A',
       gender: Gender.Male,
+      travelClass: TravelClass.Business,
       occupation: 'Cop',
       entries: [
         {
@@ -54,6 +56,7 @@ const patients: Patient[] = [
       dateOfBirth: '1970-04-25',
       ssn: '250470-555L',
       gender: Gender.Male,
+      travelClass: TravelClass.PremiumEconomy,
       occupation: 'Technician',
       entries: [],
     },
@@ -63,6 +66,7 @@ const patients: Patient[] = [
       dateOfBirth: '1974-01-05',
       ssn: '050174-432N',
       gender: Gender.Female,
+      travelClass: TravelClass.Economy,
       occupation: 'Forensic Pathologist',
       entries: [
         {
@@ -98,6 +102,7 @@ const patients: Patient[] = [
       dateOfBirth: '1971-04-09',
       ssn: '090471-8890',
       gender: Gender.Male,
+      travelClass: TravelClass.Economy,
       occupation: 'Digital evangelist',
       entries: [
         {

@@ -9,6 +9,13 @@ export enum Gender {
   Female = "female",
   Other = "other",
 };
+
+export enum TravelClass {
+  First = "first",
+  Business = "business",
+  PremiumEconomy = "premium economy",
+  Economy = "economy"
+}
   
 export type CensoredPatient = Omit<Patient, "ssn">;
 
@@ -22,6 +29,7 @@ export interface Patient {
   id: string;
   name: string;
   ssn: string;
+  travelClass: TravelClass;
   occupation: string;
   gender: Gender;
   dateOfBirth: string;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HealthCheckRating = exports.Gender = void 0;
+exports.HealthCheckRating = exports.TravelClass = exports.Gender = void 0;
 ;
 var Gender;
 (function (Gender) {
@@ -9,6 +9,13 @@ var Gender;
     Gender["Other"] = "other";
 })(Gender = exports.Gender || (exports.Gender = {}));
 ;
+var TravelClass;
+(function (TravelClass) {
+    TravelClass["First"] = "first";
+    TravelClass["Business"] = "business";
+    TravelClass["PremiumEconomy"] = "premium economy";
+    TravelClass["Economy"] = "economy";
+})(TravelClass = exports.TravelClass || (exports.TravelClass = {}));
 var HealthCheckRating;
 (function (HealthCheckRating) {
     HealthCheckRating[HealthCheckRating["Healthy"] = 0] = "Healthy";
