@@ -1,4 +1,4 @@
-import { Patient, Gender, TravelClass } from "../src/types";
+import { Patient, TravelClass } from "../src/types";
 
 const patients: Patient[] = [
     {
@@ -6,11 +6,9 @@ const patients: Patient[] = [
       name: 'John McClane',
       dateOfBirth: '1986-07-09',
       ssn: '090786-122X',
-      gender: Gender.Male,
       rating: 5,
       travelClass: TravelClass.First,
       seatNumber: "1A",
-      occupation: 'New york city cop',
       dietaryRequirements: "",
       entries: [
         {
@@ -33,11 +31,9 @@ const patients: Patient[] = [
       name: 'Martin Riggs',
       dateOfBirth: '1979-01-30',
       ssn: '300179-777A',
-      gender: Gender.Male,
       rating: 4,
       travelClass: TravelClass.Business,
       seatNumber: "23D",
-      occupation: 'Cop',
       dietaryRequirements: "SFML",
       entries: [
         {
@@ -61,11 +57,9 @@ const patients: Patient[] = [
       name: 'Hans Gruber',
       dateOfBirth: '1970-04-25',
       ssn: '250470-555L',
-      gender: Gender.Male,
       rating: 3,
       travelClass: TravelClass.PremiumEconomy,
       seatNumber: "31D",
-      occupation: 'Technician',
       dietaryRequirements: "NFMLA",
       entries: [],
     },
@@ -74,11 +68,9 @@ const patients: Patient[] = [
       name: 'Dana Scully',
       dateOfBirth: '1974-01-05',
       ssn: '050174-432N',
-      gender: Gender.Female,
       rating: 3,
       travelClass: TravelClass.Economy,
       seatNumber: "55H",
-      occupation: 'Forensic Pathologist',
       dietaryRequirements: "LFML",
       entries: [
         {
@@ -113,11 +105,9 @@ const patients: Patient[] = [
       name: 'Matti Luukkainen',
       dateOfBirth: '1971-04-09',
       ssn: '090471-8890',
-      gender: Gender.Male,
       rating: 4,
       travelClass: TravelClass.Economy,
       seatNumber: "55K",
-      occupation: 'Digital evangelist',
       dietaryRequirements: "BBML",
       entries: [
         {

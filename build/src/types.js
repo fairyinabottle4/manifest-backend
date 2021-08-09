@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HealthCheckRating = exports.TravelClass = exports.Gender = void 0;
-;
-var Gender;
-(function (Gender) {
-    Gender["Male"] = "male";
-    Gender["Female"] = "female";
-    Gender["Other"] = "other";
-})(Gender = exports.Gender || (exports.Gender = {}));
+exports.HealthCheckRating = exports.TravelClass = void 0;
 ;
 var TravelClass;
 (function (TravelClass) {

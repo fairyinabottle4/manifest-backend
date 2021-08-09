@@ -9,12 +9,6 @@ export interface MealType {
   name: string;
 }
 
-export enum Gender {
-  Male = "male",
-  Female = "female",
-  Other = "other",
-};
-
 export enum TravelClass {
   First = "first",
   Business = "business",
@@ -34,13 +28,9 @@ export interface Patient {
   id: string;
   name: string;
   seatNumber: string;
-  // rowNumber: number;
-  // rowLetter: string;
   rating: number;
   ssn: string;
   travelClass: TravelClass;
-  occupation: string;
-  gender: Gender;
   dateOfBirth: string;
   entries: Entry[];
   dietaryRequirements: string;

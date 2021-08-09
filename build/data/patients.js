@@ -7,11 +7,9 @@ const patients = [
         name: 'John McClane',
         dateOfBirth: '1986-07-09',
         ssn: '090786-122X',
-        gender: types_1.Gender.Male,
         rating: 5,
         travelClass: types_1.TravelClass.First,
         seatNumber: "1A",
-        occupation: 'New york city cop',
         dietaryRequirements: "",
         entries: [
             {
@@ -33,11 +31,9 @@ const patients = [
         name: 'Martin Riggs',
         dateOfBirth: '1979-01-30',
         ssn: '300179-777A',
-        gender: types_1.Gender.Male,
         rating: 4,
         travelClass: types_1.TravelClass.Business,
         seatNumber: "23D",
-        occupation: 'Cop',
         dietaryRequirements: "SFML",
         entries: [
             {
@@ -60,11 +56,9 @@ const patients = [
         name: 'Hans Gruber',
         dateOfBirth: '1970-04-25',
         ssn: '250470-555L',
-        gender: types_1.Gender.Male,
         rating: 3,
         travelClass: types_1.TravelClass.PremiumEconomy,
         seatNumber: "31D",
-        occupation: 'Technician',
         dietaryRequirements: "NFMLA",
         entries: [],
     },
@@ -73,11 +67,9 @@ const patients = [
         name: 'Dana Scully',
         dateOfBirth: '1974-01-05',
         ssn: '050174-432N',
-        gender: types_1.Gender.Female,
         rating: 3,
         travelClass: types_1.TravelClass.Economy,
         seatNumber: "55H",
-        occupation: 'Forensic Pathologist',
         dietaryRequirements: "LFML",
         entries: [
             {
@@ -111,11 +103,9 @@ const patients = [
         name: 'Matti Luukkainen',
         dateOfBirth: '1971-04-09',
         ssn: '090471-8890',
-        gender: types_1.Gender.Male,
         rating: 4,
         travelClass: types_1.TravelClass.Economy,
         seatNumber: "55K",
-        occupation: 'Digital evangelist',
         dietaryRequirements: "BBML",
         entries: [
             {

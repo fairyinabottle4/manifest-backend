@@ -2,7 +2,6 @@ import {
   Patient,
   CensoredPatient,
   NewPatientEntry,
-  Gender,
   BaseEntry,
   HealthCheckRating,
   Entry,
@@ -16,21 +15,18 @@ export const censorPatient = ({
   id,
   name,
   dateOfBirth,
-  gender,
   travelClass,
   dietaryRequirements,
-  occupation,
   entries,
   seatNumber,
   rating
 }: Patient): CensoredPatient => {
-  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements, rating };
+  return { id, name, dateOfBirth, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, 
-  travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown, rating: number};
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown, rating: number};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, 
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, travelClass, 
   seatNumber, dietaryRequirements, rating} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     rating,
@@ -39,8 +35,6 @@ export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, t
     seatNumber: parseString(seatNumber, "seat number"),
     travelClass: parseTravelClass(travelClass),
     dateOfBirth: parseDateOfBirth(dateOfBirth),
-    gender: parseGender(gender),
-    occupation: parseString(occupation, "occupation"),
     entries: [],
     dietaryRequirements: parseString(dietaryRequirements, "meal type")
   };
@@ -59,28 +53,6 @@ const parseString = (text: any, field: string): string => {
     throw new Error(`Invalid or missing ${field}`);
   }
   return text.trim();
-};
-
-// const isMealType = (mealType: any): mealType is MealType => {
-//   return Object.values(MealType).includes(mealType);
-// };
-
-// const parseMealType = (mealType: any): MealType => {
-//   if (!mealType || !isString(mealType) || !isMealType(mealType)) {
-//     throw new Error(`Invalid or missing meal type`);
-//   }
-//   return mealType;
-// };
-  
-const isGender = (gender: any): gender is Gender => {
-  return Object.values(Gender).includes(gender);
-};
-
-const parseGender = (gender: any): Gender => {
-  if (!gender || !isString(gender) || !isGender(gender)) {
-    throw new Error(`Invalid or missing gender`);
-  }
-  return gender;
 };
 
 const isTravelClass = (travelClass: any): travelClass is TravelClass => {

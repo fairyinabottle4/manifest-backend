@@ -25,14 +25,12 @@ router.post('/:id/entries', (req, res) => {
 router.post('/', (req, res) => {
     try {
         //toNewPatientEntry serves as a validation for the input
-        console.log(req.body);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const rowNum = req.body.rowNumber;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const rowLetter = req.body.rowLetter;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const seatNumber = rowNum.concat(rowLetter);
-        // console.log(seatNumber);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const newPatient = Object.assign(Object.assign({}, req.body), { seatNumber });
         const newPatientEntry = utils_1.toNewPatientEntry(newPatient);
