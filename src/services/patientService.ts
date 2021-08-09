@@ -22,9 +22,15 @@ const getSinglePatient = (id: string): Patient => {
 }
 
 const addPatient = ( entry: NewPatientEntry ): Patient => {
+  //at this point, the backend will query database if passenger has past experience 
+  //with the airline. If yes, the previous rating score will be fetched. 
+
+  //For now, this will be a random number
+  const rating = Math.floor(Math.random() * 5)
   const newPatient = {
     id: id,
-    ...entry
+    ...entry,
+    rating
   };
   patients.push(newPatient);
   return newPatient;

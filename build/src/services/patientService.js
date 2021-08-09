@@ -21,9 +21,11 @@ const getSinglePatient = (id) => {
     }
 };
 const addPatient = (entry) => {
-    // console.log(entry)
-    // console.log('hello');
-    const newPatient = Object.assign({ id: id }, entry);
+    //at this point, the backend will query database if passenger has past experience 
+    //with the airline. If yes, the previous rating score will be fetched. 
+    //For now, this will be a random number
+    const rating = Math.floor(Math.random() * 5);
+    const newPatient = Object.assign(Object.assign({ id: id }, entry), { rating });
     patients.push(newPatient);
     return newPatient;
 };

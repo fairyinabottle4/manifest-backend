@@ -21,16 +21,19 @@ export const censorPatient = ({
   dietaryRequirements,
   occupation,
   entries,
-  seatNumber
+  seatNumber,
+  rating
 }: Patient): CensoredPatient => {
-  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
+  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 
 type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, 
-  travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown};
+  travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown, rating: number};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, dietaryRequirements} : Fields): NewPatientEntry => {
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, 
+  seatNumber, dietaryRequirements, rating} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
+    rating,
     name: parseString(name, "name"),
     ssn: parseString(ssn, "ssn"),
     seatNumber: parseString(seatNumber, "seat number"),

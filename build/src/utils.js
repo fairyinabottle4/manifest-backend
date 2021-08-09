@@ -3,12 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.toNewEntry = exports.toNewPatientEntry = exports.censorPatient = void 0;
 const types_1 = require("./types");
 const uuid_1 = require("uuid");
-const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, dietaryRequirements, occupation, entries, seatNumber }) => {
-    return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
+const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, dietaryRequirements, occupation, entries, seatNumber, rating }) => {
+    return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 exports.censorPatient = censorPatient;
-const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, dietaryRequirements }) => {
+const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, dietaryRequirements, rating }) => {
     const newPatient = {
+        rating,
         name: parseString(name, "name"),
         ssn: parseString(ssn, "ssn"),
         seatNumber: parseString(seatNumber, "seat number"),
