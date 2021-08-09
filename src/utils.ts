@@ -19,17 +19,19 @@ export const censorPatient = ({
   gender,
   travelClass,
   occupation,
-  entries
+  entries,
+  seatNumber
 }: Patient): CensoredPatient => {
-  return { id, name, dateOfBirth, gender, occupation, entries, travelClass };
+  return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown};
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown, seatNumber: unknown};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass} : Fields): NewPatientEntry => {
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     name: parseString(name, "name"),
     ssn: parseString(ssn, "ssn"),
+    seatNumber: parseString(seatNumber, "seat number"),
     travelClass: parseTravelClass(travelClass),
     dateOfBirth: parseDateOfBirth(dateOfBirth),
     gender: parseGender(gender),

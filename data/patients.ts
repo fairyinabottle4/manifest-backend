@@ -8,6 +8,7 @@ const patients: Patient[] = [
       ssn: '090786-122X',
       gender: Gender.Male,
       travelClass: TravelClass.First,
+      seatNumber: "1A",
       occupation: 'New york city cop',
       entries: [
         {
@@ -32,6 +33,7 @@ const patients: Patient[] = [
       ssn: '300179-777A',
       gender: Gender.Male,
       travelClass: TravelClass.Business,
+      seatNumber: "23D",
       occupation: 'Cop',
       entries: [
         {
@@ -57,6 +59,7 @@ const patients: Patient[] = [
       ssn: '250470-555L',
       gender: Gender.Male,
       travelClass: TravelClass.PremiumEconomy,
+      seatNumber: "31D",
       occupation: 'Technician',
       entries: [],
     },
@@ -67,6 +70,7 @@ const patients: Patient[] = [
       ssn: '050174-432N',
       gender: Gender.Female,
       travelClass: TravelClass.Economy,
+      seatNumber: "55H",
       occupation: 'Forensic Pathologist',
       entries: [
         {
@@ -103,6 +107,7 @@ const patients: Patient[] = [
       ssn: '090471-8890',
       gender: Gender.Male,
       travelClass: TravelClass.Economy,
+      seatNumber: "55K",
       occupation: 'Digital evangelist',
       entries: [
         {

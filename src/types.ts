@@ -28,6 +28,7 @@ export interface Entry {
 export interface Patient {
   id: string;
   name: string;
+  seatNumber: string;
   ssn: string;
   travelClass: TravelClass;
   occupation: string;
