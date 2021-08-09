@@ -34,6 +34,8 @@ export interface Patient {
   id: string;
   name: string;
   seatNumber: string;
+  // rowNumber: number;
+  // rowLetter: string;
   rating: number;
   ssn: string;
   travelClass: TravelClass;

@@ -1,7 +1,7 @@
 import express from 'express'
 import patientService from '../services/patientService'
 import { toNewEntry, toNewPatientEntry } from '../utils'
-import { Entry } from '../types'
+import { Entry, Patient } from '../types'
 
 const router = express.Router()
 
@@ -24,7 +24,15 @@ router.post('/:id/entries', (req, res) => {
 router.post('/', (req, res) => {
   try {
     //toNewPatientEntry serves as a validation for the input
-    const newPatientEntry = toNewPatientEntry(req.body);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const rowNum: string = req.body.rowNumber;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const rowLetter: string = req.body.rowLetter;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const seatNumber = rowNum.concat(rowLetter);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const newPatient: Patient = {...req.body, seatNumber};
+    const newPatientEntry = toNewPatientEntry(newPatient);
     const addedEntry = patientService.addPatient(newPatientEntry);
     res.json(addedEntry);
   } catch (e) {
