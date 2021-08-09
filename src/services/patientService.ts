@@ -26,7 +26,6 @@ const addPatient = ( entry: NewPatientEntry ): Patient => {
     id: id,
     ...entry
   };
-
   patients.push(newPatient);
   return newPatient;
 }

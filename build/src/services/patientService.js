@@ -21,6 +21,8 @@ const getSinglePatient = (id) => {
     }
 };
 const addPatient = (entry) => {
+    // console.log(entry)
+    // console.log('hello');
     const newPatient = Object.assign({ id: id }, entry);
     patients.push(newPatient);
     return newPatient;

@@ -7,7 +7,7 @@ const censorPatient = ({ id, name, dateOfBirth, gender, travelClass, dietaryRequ
     return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
 };
 exports.censorPatient = censorPatient;
-const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, mealType }) => {
+const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, dietaryRequirements }) => {
     const newPatient = {
         name: parseString(name, "name"),
         ssn: parseString(ssn, "ssn"),
@@ -17,12 +17,14 @@ const toNewPatientEntry = ({ name, ssn, dateOfBirth, gender, occupation, travelC
         gender: parseGender(gender),
         occupation: parseString(occupation, "occupation"),
         entries: [],
-        dietaryRequirements: parseString(mealType, "meal type")
+        dietaryRequirements: parseString(dietaryRequirements, "meal type")
     };
     return newPatient;
 };
 exports.toNewPatientEntry = toNewPatientEntry;
 const isString = (text) => {
+    // console.log(text)
+    // console.log('world')
     return typeof text === "string" || text instanceof String;
 };
 const parseString = (text, field) => {
@@ -53,7 +55,7 @@ const isTravelClass = (travelClass) => {
     return Object.values(types_1.TravelClass).includes(travelClass);
 };
 const parseTravelClass = (travelClass) => {
-    if (!travelClass || !isTravelClass(travelClass) || isString(travelClass)) {
+    if (!travelClass || !isTravelClass(travelClass) || !isString(travelClass)) {
         throw new Error(`Invalid or missing travel class`);
     }
     return travelClass;

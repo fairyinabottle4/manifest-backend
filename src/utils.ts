@@ -26,9 +26,10 @@ export const censorPatient = ({
   return { id, name, dateOfBirth, gender, occupation, entries, travelClass, seatNumber, dietaryRequirements };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, travelClass: unknown, seatNumber: unknown, mealType: unknown};
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, gender: unknown, occupation: unknown, 
+  travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, mealType} : Fields): NewPatientEntry => {
+export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, travelClass, seatNumber, dietaryRequirements} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     name: parseString(name, "name"),
     ssn: parseString(ssn, "ssn"),
@@ -38,13 +39,15 @@ export const toNewPatientEntry = ({name, ssn, dateOfBirth, gender, occupation, t
     gender: parseGender(gender),
     occupation: parseString(occupation, "occupation"),
     entries: [],
-    dietaryRequirements: parseString(mealType, "meal type")
+    dietaryRequirements: parseString(dietaryRequirements, "meal type")
   };
 
   return newPatient;
 }
 
 const isString = (text: any): text is string => {
+  // console.log(text)
+  // console.log('world')
   return typeof text === "string" || text instanceof String;
 };
 
@@ -82,7 +85,7 @@ const isTravelClass = (travelClass: any): travelClass is TravelClass => {
 };
 
 const parseTravelClass = (travelClass: any): TravelClass => {
-  if (!travelClass || !isTravelClass(travelClass) || isString(travelClass)) {
+  if (!travelClass || !isTravelClass(travelClass) || !isString(travelClass)) {
     throw new Error(`Invalid or missing travel class`);
   }
   return travelClass;

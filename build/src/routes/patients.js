@@ -25,6 +25,7 @@ router.post('/:id/entries', (req, res) => {
 router.post('/', (req, res) => {
     try {
         //toNewPatientEntry serves as a validation for the input
+        console.log(req.body);
         const newPatientEntry = utils_1.toNewPatientEntry(req.body);
         const addedEntry = patientService_1.default.addPatient(newPatientEntry);
         res.json(addedEntry);
