@@ -16,7 +16,7 @@ const toNewPatientEntry = ({ name, ssn, dateOfBirth, travelClass, seatNumber, di
         travelClass: parseTravelClass(travelClass),
         dateOfBirth: parseDateOfBirth(dateOfBirth),
         entries: [],
-        dietaryRequirements: parseString(dietaryRequirements, "meal type")
+        dietaryRequirements
     };
     return newPatient;
 };

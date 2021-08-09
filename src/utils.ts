@@ -24,7 +24,7 @@ export const censorPatient = ({
   return { id, name, dateOfBirth, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, travelClass: unknown, seatNumber: unknown, dietaryRequirements: unknown, rating: number};
+type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, travelClass: unknown, seatNumber: unknown, dietaryRequirements: string, rating: number};
 
 export const toNewPatientEntry = ({name, ssn, dateOfBirth, travelClass, 
   seatNumber, dietaryRequirements, rating} : Fields): NewPatientEntry => {
@@ -36,15 +36,13 @@ export const toNewPatientEntry = ({name, ssn, dateOfBirth, travelClass,
     travelClass: parseTravelClass(travelClass),
     dateOfBirth: parseDateOfBirth(dateOfBirth),
     entries: [],
-    dietaryRequirements: parseString(dietaryRequirements, "meal type")
+    dietaryRequirements
   };
 
   return newPatient;
 }
 
 const isString = (text: any): text is string => {
-  // console.log(text)
-  // console.log('world')
   return typeof text === "string" || text instanceof String;
 };
 
