@@ -4,6 +4,11 @@ export interface Diagnosis {
   latin?: string;
 };
 
+export interface MealType {
+  code: string;
+  name: string;
+}
+
 export enum Gender {
   Male = "male",
   Female = "female",
