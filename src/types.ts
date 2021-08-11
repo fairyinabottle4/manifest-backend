@@ -32,7 +32,7 @@ export interface Patient {
   confirmNumber: string;
   travelClass: TravelClass;
   dateOfBirth: string;
-  entries: Entry[];
+  entries: BaseEntry[];
   dietaryRequirements: string;
 }
 

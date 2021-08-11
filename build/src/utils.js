@@ -71,19 +71,19 @@ const parseArrayStringCodes = (data) => {
     }
     return codes;
 };
-const isRating = (param) => {
-    return Object.values(types_1.HealthCheckRating).includes(param);
-};
-const parseRating = (rating) => {
-    if (!rating) {
-        throw new Error(`Missing rating`);
-    }
-    const ratingNumber = parseInt(rating);
-    if (isNaN(ratingNumber) || !isRating(ratingNumber)) {
-        throw new Error(`Incorrect rating number: ${Object.values(types_1.HealthCheckRating).join(' | ')}`);
-    }
-    return ratingNumber;
-};
+// const isRating = (param: number): param is HealthCheckRating => {
+//   return Object.values(HealthCheckRating).includes(param);
+// };
+// const parseRating = (rating: any): HealthCheckRating => {
+//   if (!rating) {
+//     throw new Error(`Missing rating`);
+//   }
+//   const ratingNumber: number = parseInt(rating);
+//   if (isNaN(ratingNumber) || !isRating(ratingNumber)) {
+//     throw new Error(`Incorrect rating number: ${Object.values(HealthCheckRating).join(' | ')}`);
+//   }
+//   return ratingNumber;
+// };
 const toNewEntry = (object) => {
     const baseEntry = {
         id: uuid_1.v4(),
@@ -95,25 +95,38 @@ const toNewEntry = (object) => {
     if (!object.type || !isString(object.type)) {
         throw new Error(`Missing or invalid entry type`);
     }
-    switch (object.type) {
-        case 'HealthCheck':
-            return Object.assign(Object.assign({}, baseEntry), { type: 'HealthCheck', healthCheckRating: parseRating(object.healthCheckRating) });
-        case 'Hospital':
-            return Object.assign(Object.assign({}, baseEntry), { type: 'Hospital', discharge: {
-                    date: parseDateOfBirth(object.dischargeDate),
-                    criteria: parseString('dischargeCriteria', object.dischargeCriteria)
-                } });
-        case 'OccupationalHealthcare':
-            let sickLeave;
-            if (object.sickLeaveStartDate && object.sickLeaveEndDate) {
-                sickLeave = {
-                    startDate: parseDateOfBirth(object.sickLeaveStartDate),
-                    endDate: parseDateOfBirth(object.sickLeaveEndDate)
-                };
-            }
-            return Object.assign(Object.assign({}, baseEntry), { type: 'OccupationalHealthcare', employerName: parseString('employerName', object.employerName), sickLeave });
-        default:
-            throw new Error(`Incorrect entry type`);
-    }
+    return Object.assign({}, baseEntry);
+    // switch (object.type) {
+    //   case 'HealthCheck':
+    //     return {
+    //       ...baseEntry,
+    //       type: 'HealthCheck',
+    //       healthCheckRating: parseRating(object.healthCheckRating)
+    //     };
+    //   case 'Hospital':
+    //     return {
+    //       ...baseEntry,
+    //       type: 'Hospital',
+    //       discharge: {
+    //         date: parseDateOfBirth(object.dischargeDate),
+    //         criteria: parseString('dischargeCriteria', object.dischargeCriteria)
+    //       }
+    //     };
+    //   case 'OccupationalHealthcare':
+    //     let sickLeave;
+    //     if (object.sickLeaveStartDate && object.sickLeaveEndDate) {
+    //       sickLeave = {
+    //         startDate: parseDateOfBirth(object.sickLeaveStartDate),
+    //         endDate: parseDateOfBirth(object.sickLeaveEndDate)
+    //       };
+    //     }
+    //     return {
+    //       ...baseEntry,
+    //       type: 'OccupationalHealthcare',
+    //       employerName: parseString('employerName', object.employerName),
+    //       sickLeave
+    //     };
+    //   default:
+    //     throw new Error(`Incorrect entry type`);
 };
 exports.toNewEntry = toNewEntry;

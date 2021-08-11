@@ -2,7 +2,7 @@ import patientData from '../../data/patients'
 import { censorPatient } from "../utils";
 import {v1 as uuid} from 'uuid'
 import { Patient, CensoredPatient, NewPatientEntry } from '../types'
-import { Entry } from '../types'
+import { BaseEntry } from '../types'
 
 const patients: Array<Patient> = patientData
 
@@ -36,7 +36,7 @@ const addPatient = ( entry: NewPatientEntry ): Patient => {
   return newPatient;
 }
 
-const addEntry = (patientId: string, entry: Entry): Entry => {
+const addEntry = (patientId: string, entry: BaseEntry): BaseEntry => {
 
   const patient: Patient | undefined = getSinglePatient(patientId);
   if (!patient) {
