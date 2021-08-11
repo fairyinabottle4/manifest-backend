@@ -45,5 +45,4 @@ export interface BaseEntry {
   travelClass: TravelClass;
   date: string;
   route: string;
-  diagnosisCodes?: Array<Diagnosis['code']>;
 }

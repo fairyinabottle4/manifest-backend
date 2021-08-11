@@ -3,7 +3,6 @@ import {
   CensoredPatient,
   NewPatientEntry,
   BaseEntry,
-  Diagnosis,
   TravelClass,
 } from './types';
 
@@ -73,33 +72,6 @@ const parseDateOfBirth = (date: any): string => {
   return date.trim();
 };
 
-const parseArrayStringCodes = (data: any): Array<Diagnosis['code']> => {
-
-  if (!data) {
-    return [];
-  }
-
-  const codes: Array<Diagnosis['code']> = [];
-  const error = '"diagnosisCodes" is an array of codes as string';
-
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const dataCodes: Array<Diagnosis['code']> = typeof data === 'object' ? data : JSON.parse(data);
-    if (!Array.isArray(dataCodes)) throw new Error(error);
-    dataCodes.forEach((code) => {
-      if (!isString(code)) {
-        throw new Error(error);
-      }
-      codes.push(code);
-    });
-
-  } catch (error) {
-    throw new Error(error);
-  }
-
-  return codes
-};
-
 // const isRating = (param: number): param is HealthCheckRating => {
 //   return Object.values(HealthCheckRating).includes(param);
 // };
@@ -121,7 +93,6 @@ export const toNewEntry = (object: any): BaseEntry => {
     travelClass: parseTravelClass(object.travelClass),
     date: parseDateOfBirth(object.date),
     route: parseString(object.route, "route"),
-    diagnosisCodes: parseArrayStringCodes(object.diagnosisCodes),
   };
   if (!object.type || !isString(object.type)) {
     throw new Error(`Missing or invalid entry type`);

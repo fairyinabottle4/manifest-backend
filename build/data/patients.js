@@ -16,7 +16,6 @@ const patients = [
                 id: 'd811e46d-70b3-4d90-b090-4535c7cf8fb1',
                 date: '2015-01-02',
                 route: 'SIN-LAX',
-                diagnosisCodes: ['S62.5'],
                 travelClass: types_1.TravelClass.First,
             },
         ],
@@ -35,7 +34,6 @@ const patients = [
                 id: 'fcd59fa6-c4b4-4fec-ac4d-df4fe1f85f62',
                 date: '2019-08-05',
                 route: 'SIN-SFO',
-                diagnosisCodes: ['Z57.1', 'Z74.3', 'M51.2'],
                 travelClass: types_1.TravelClass.Business
             },
         ],

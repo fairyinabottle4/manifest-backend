@@ -48,29 +48,6 @@ const parseDateOfBirth = (date) => {
     }
     return date.trim();
 };
-const parseArrayStringCodes = (data) => {
-    if (!data) {
-        return [];
-    }
-    const codes = [];
-    const error = '"diagnosisCodes" is an array of codes as string';
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const dataCodes = typeof data === 'object' ? data : JSON.parse(data);
-        if (!Array.isArray(dataCodes))
-            throw new Error(error);
-        dataCodes.forEach((code) => {
-            if (!isString(code)) {
-                throw new Error(error);
-            }
-            codes.push(code);
-        });
-    }
-    catch (error) {
-        throw new Error(error);
-    }
-    return codes;
-};
 // const isRating = (param: number): param is HealthCheckRating => {
 //   return Object.values(HealthCheckRating).includes(param);
 // };
@@ -90,7 +67,6 @@ const toNewEntry = (object) => {
         travelClass: parseTravelClass(object.travelClass),
         date: parseDateOfBirth(object.date),
         route: parseString(object.route, "route"),
-        diagnosisCodes: parseArrayStringCodes(object.diagnosisCodes),
     };
     if (!object.type || !isString(object.type)) {
         throw new Error(`Missing or invalid entry type`);
