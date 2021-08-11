@@ -120,7 +120,7 @@ export const toNewEntry = (object: any): BaseEntry => {
     id: uuid(),
     description: parseString(object.description, "description"),
     date: parseDateOfBirth(object.date),
-    specialist: parseString(object.specialist, "specialist"),
+    route: parseString(object.route, "route"),
     diagnosisCodes: parseArrayStringCodes(object.diagnosisCodes),
   };
   if (!object.type || !isString(object.type)) {
@@ -130,40 +130,5 @@ export const toNewEntry = (object: any): BaseEntry => {
   return {
     ...baseEntry
   };
-  // switch (object.type) {
-  //   case 'HealthCheck':
-  //     return {
-  //       ...baseEntry,
-  //       type: 'HealthCheck',
-  //       healthCheckRating: parseRating(object.healthCheckRating)
-  //     };
-
-  //   case 'Hospital':
-  //     return {
-  //       ...baseEntry,
-  //       type: 'Hospital',
-  //       discharge: {
-  //         date: parseDateOfBirth(object.dischargeDate),
-  //         criteria: parseString('dischargeCriteria', object.dischargeCriteria)
-  //       }
-  //     };
-
-  //   case 'OccupationalHealthcare':
-  //     let sickLeave;
-  //     if (object.sickLeaveStartDate && object.sickLeaveEndDate) {
-  //       sickLeave = {
-  //         startDate: parseDateOfBirth(object.sickLeaveStartDate),
-  //         endDate: parseDateOfBirth(object.sickLeaveEndDate)
-  //       };
-  //     }
-  //     return {
-  //       ...baseEntry,
-  //       type: 'OccupationalHealthcare',
-  //       employerName: parseString('employerName', object.employerName),
-  //       sickLeave
-  //     };
-
-  //   default:
-  //     throw new Error(`Incorrect entry type`);
 }; 
 

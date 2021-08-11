@@ -44,6 +44,6 @@ export interface BaseEntry {
   id: string;
   description: string;
   date: string;
-  specialist: string;
+  route: string;
   diagnosisCodes?: Array<Diagnosis['code']>;
 }
