@@ -87,7 +87,7 @@ const parseArrayStringCodes = (data) => {
 const toNewEntry = (object) => {
     const baseEntry = {
         id: uuid_1.v4(),
-        description: parseString(object.description, "description"),
+        travelClass: parseTravelClass(object.travelClass),
         date: parseDateOfBirth(object.date),
         route: parseString(object.route, "route"),
         diagnosisCodes: parseArrayStringCodes(object.diagnosisCodes),

@@ -118,7 +118,7 @@ const parseArrayStringCodes = (data: any): Array<Diagnosis['code']> => {
 export const toNewEntry = (object: any): BaseEntry => {
   const baseEntry: BaseEntry = {
     id: uuid(),
-    description: parseString(object.description, "description"),
+    travelClass: parseTravelClass(object.travelClass),
     date: parseDateOfBirth(object.date),
     route: parseString(object.route, "route"),
     diagnosisCodes: parseArrayStringCodes(object.diagnosisCodes),

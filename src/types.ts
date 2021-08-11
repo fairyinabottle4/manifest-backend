@@ -42,7 +42,7 @@ export type NewEntry = Omit<Entry, 'id'>
 
 export interface BaseEntry {
   id: string;
-  description: string;
+  travelClass: TravelClass;
   date: string;
   route: string;
   diagnosisCodes?: Array<Diagnosis['code']>;
