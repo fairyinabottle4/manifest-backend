@@ -16,7 +16,7 @@ export enum TravelClass {
   Economy = "economy"
 }
   
-export type CensoredPatient = Omit<Patient, "ssn">;
+export type CensoredPatient = Omit<Patient, "confirmNumber">;
 
 export type NewPatientEntry = Omit<Patient, 'id'>;
 
@@ -29,14 +29,14 @@ export interface Patient {
   name: string;
   seatNumber: string;
   rating: number;
-  ssn: string;
+  confirmNumber: string;
   travelClass: TravelClass;
   dateOfBirth: string;
   entries: Entry[];
   dietaryRequirements: string;
 }
 
-export type PublicPatient = Omit<Patient, 'ssn' | 'entries' >
+export type PublicPatient = Omit<Patient, 'confirmNumber' | 'entries' >
 
 export type NewEntry = Omit<Entry, 'id'>
 

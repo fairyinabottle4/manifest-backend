@@ -24,14 +24,14 @@ export const censorPatient = ({
   return { id, name, dateOfBirth, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 
-type Fields = {name: unknown, ssn: unknown, dateOfBirth: unknown, travelClass: unknown, seatNumber: unknown, dietaryRequirements: string, rating: number};
+type Fields = {name: unknown, confirmNumber: unknown, dateOfBirth: unknown, travelClass: unknown, seatNumber: unknown, dietaryRequirements: string, rating: number};
 
-export const toNewPatientEntry = ({name, ssn, dateOfBirth, travelClass, 
+export const toNewPatientEntry = ({name, confirmNumber, dateOfBirth, travelClass, 
   seatNumber, dietaryRequirements, rating} : Fields): NewPatientEntry => {
   const newPatient: NewPatientEntry = {
     rating,
     name: parseString(name, "name"),
-    ssn: parseString(ssn, "ssn"),
+    confirmNumber: parseString(confirmNumber, "confirmNumber"),
     seatNumber: parseString(seatNumber, "seat number"),
     travelClass: parseTravelClass(travelClass),
     dateOfBirth: parseDateOfBirth(dateOfBirth),

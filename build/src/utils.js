@@ -7,11 +7,11 @@ const censorPatient = ({ id, name, dateOfBirth, travelClass, dietaryRequirements
     return { id, name, dateOfBirth, entries, travelClass, seatNumber, dietaryRequirements, rating };
 };
 exports.censorPatient = censorPatient;
-const toNewPatientEntry = ({ name, ssn, dateOfBirth, travelClass, seatNumber, dietaryRequirements, rating }) => {
+const toNewPatientEntry = ({ name, confirmNumber, dateOfBirth, travelClass, seatNumber, dietaryRequirements, rating }) => {
     const newPatient = {
         rating,
         name: parseString(name, "name"),
-        ssn: parseString(ssn, "ssn"),
+        confirmNumber: parseString(confirmNumber, "confirmNumber"),
         seatNumber: parseString(seatNumber, "seat number"),
         travelClass: parseTravelClass(travelClass),
         dateOfBirth: parseDateOfBirth(dateOfBirth),
@@ -22,8 +22,6 @@ const toNewPatientEntry = ({ name, ssn, dateOfBirth, travelClass, seatNumber, di
 };
 exports.toNewPatientEntry = toNewPatientEntry;
 const isString = (text) => {
-    // console.log(text)
-    // console.log('world')
     return typeof text === "string" || text instanceof String;
 };
 const parseString = (text, field) => {
