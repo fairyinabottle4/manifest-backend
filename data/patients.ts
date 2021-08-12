@@ -3,7 +3,7 @@ import { Patient, TravelClass, FrequentFlyer } from "../src/types";
 const patients: Patient[] = [
     {
       id: 'd2773336-f723-11e9-8f0b-362b9e155667',
-      name: 'John McClane',
+      name: 'Jonas Kahnwald',
       dateOfBirth: '1986-07-09',
       confirmNumber: 'A9BU9D',
       rating: 5,
@@ -22,7 +22,7 @@ const patients: Patient[] = [
     },
     {
       id: 'd2773598-f723-11e9-8f0b-362b9e155667',
-      name: 'Martin Riggs',
+      name: 'Martha Nielsen',
       dateOfBirth: '1979-01-30',
       confirmNumber: 'HJ9A0F',
       rating: 4,
@@ -40,7 +40,7 @@ const patients: Patient[] = [
     },
     {
       id: 'd27736ec-f723-11e9-8f0b-362b9e155667',
-      name: 'Hans Gruber',
+      name: 'Jake Peralta',
       dateOfBirth: '1970-04-25',
       confirmNumber: 'WT7Y98',
       rating: 3,
@@ -51,7 +51,7 @@ const patients: Patient[] = [
     },
     {
       id: 'd2773822-f723-11e9-8f0b-362b9e155667',
-      name: 'Dana Scully',
+      name: 'Lee Ik-Jun',
       dateOfBirth: '1974-01-05',
       confirmNumber: 'N03R54',
       frequentFlyer: FrequentFlyer.Silver,
