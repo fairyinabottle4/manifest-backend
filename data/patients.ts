@@ -1,4 +1,4 @@
-import { Patient, TravelClass } from "../src/types";
+import { Patient, TravelClass, FrequentFlyer } from "../src/types";
 
 const patients: Patient[] = [
     {
@@ -7,6 +7,7 @@ const patients: Patient[] = [
       dateOfBirth: '1986-07-09',
       confirmNumber: 'A9BU9D',
       rating: 5,
+      frequentFlyer: FrequentFlyer.Gold,
       travelClass: TravelClass.First,
       seatNumber: "1A",
       dietaryRequirements: "",
@@ -53,6 +54,7 @@ const patients: Patient[] = [
       name: 'Dana Scully',
       dateOfBirth: '1974-01-05',
       confirmNumber: 'N03R54',
+      frequentFlyer: FrequentFlyer.Silver,
       rating: 3,
       travelClass: TravelClass.Economy,
       seatNumber: "55H",

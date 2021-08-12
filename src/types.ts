@@ -15,6 +15,12 @@ export enum TravelClass {
   PremiumEconomy = "premium economy",
   Economy = "economy"
 }
+
+export enum FrequentFlyer {
+  Silver = "silver",
+  Gold = "gold",
+  Platinum = "platinum"
+}
   
 export type CensoredPatient = Omit<Patient, "confirmNumber">;
 
@@ -27,6 +33,7 @@ export interface Entry {
 export interface Patient {
   id: string;
   name: string;
+  frequentFlyer?: FrequentFlyer;
   seatNumber: string;
   rating: number;
   confirmNumber: string;
