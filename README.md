@@ -23,3 +23,6 @@ This is the backend repository for the Passenger Manifest webapp.
 * Store info in database and pull passenger info from database where applicable. 
 * Differentiate seats and travel class by aircraft type. 
 
+
+Note to self: Compile first then deploy to heroku
+
