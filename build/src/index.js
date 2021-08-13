@@ -10,7 +10,8 @@ const patients_1 = __importDefault(require("./routes/patients"));
 const app = express_1.default();
 app.use(cors_1.default());
 app.use(express_1.default.json());
-const PORT = 3000;
+app.use(express_1.default.static('build/frontend'));
+const PORT = 3000 || process.env.PORT;
 app.get('/api/ping', (_req, res) => {
     console.log('someone pinged here');
     res.send('pong');
